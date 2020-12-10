@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 
 //connect to db
 // postgres://user:pass@example.com:5432/dbname
@@ -15,10 +15,21 @@ sequelize
   .catch((err) => console.log("Unable to connect to database", err));
 
 
-sequelize.define(
-    "recruiter",{
+const UserModel = sequelize.define(
+    "recruiter",
+    {
     //attribute
-},
-{
+    //id, fristName, lastName, createAt, updatedAt
+    firstName:{
+        type: DataTypes.STRING,
+    },
+    lastName:{
+        type:DataTypes.STRING,
+    }
+    },
+    {
     //options
-});
+    }
+);
+
+module.exports = UserModel;
